@@ -11,7 +11,7 @@ int main()
 
         if (a <= 0 || b <= 0)
         {
-            printf("Os números devem ser positivos.\n");
+            printf("Os numeros devem ser positivos.\n");
         }
     } while (a <= 0 || b <= 0);
 
