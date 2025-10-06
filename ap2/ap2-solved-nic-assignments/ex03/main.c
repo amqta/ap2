@@ -81,7 +81,7 @@ float MAIORSALDO(struct CLIENTEBANCARIO cliente[3])
     float maior = cliente[0].saldo;
     for (int i = 0; i < 3; i++)
     {
-        if (cliente[i].saldo > cliente[0].saldo)
+        if (cliente[i].saldo > maior)
         {
             maior = cliente[i].saldo;
         }

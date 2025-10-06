@@ -2,7 +2,6 @@
 #include "header.h"
 
 int main() {
-    int numeroDaQuestao = 0;
-    Exercicio(numeroDaQuestao);
+    Exercicio(0);
     return 0;
 }
