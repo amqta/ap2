@@ -11,7 +11,7 @@ int main()
     FILE *TEXTO;
     TEXTO = fopen("dados.txt", "w");
 
-    if (TEXTO == NULL)
+    if (TEXTO == NULL)  
     {
         printf("Erro.\n");
         return 1;
