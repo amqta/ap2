@@ -48,29 +48,34 @@ int main()
     fgets(novoCurso, sizeof(novoCurso), stdin);
     novoCurso[strcspn(novoCurso, "\n")] = '\0';
 
-    FILE *DATA = ("ALUNOS.DAT", "r");
+    FILE *DATA = fopen("ALUNOS.DAT", "r");
     if (DATA == NULL)
     {
         printf("Falha ao abrir o arquivo.\n");
         return 1;
     }
 
-    FILE *TEMP_DATA = ("TEMP_ALUNOS.DAT", "w");
-        if (TEMP_DATA == NULL)
+    FILE *TEMP_DATA = fopen("TEMP_ALUNOS.DAT", "w");
+    if (TEMP_DATA == NULL)
     {
         printf("Falha ao criar o arquivo temporário.\n");
         fclose(DATA);
         return 1;
     }
 
-    while(lerProximoAluno(DATA, &aluno))
-    if(aluno.matricula == matriculaTarget) {
-        aluno.curso = novoCurso;
+    while (lerProximoAluno(DATA, &aluno))
+    {
+        if (aluno.matricula == matriculaTarget)
+        {
+            strcpy(aluno.curso, novoCurso);
+        }
+        escreverAluno(TEMP_DATA, aluno);
     }
-    escreverAluno(TEMP_DATA, aluno);
+
     remove("ALUNOS.DAT");
     rename("TEMP_ALUNOS.DAT", "ALUNOS.DAT");
 
+    printf("Curso do aluno de matrícula %d alterado com sucesso.\n", matriculaTarget);
     return 0;
 }
 
