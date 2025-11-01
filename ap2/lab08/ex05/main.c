@@ -2,6 +2,10 @@
 #include <string.h>
 #include <stdlib.h>
 
+/*
+5. Faça um programa para alterar as notas dos alunos no arquivo criado no Exercício 3.
+*/
+
 typedef struct
 {
     char nome[50], curso[100];
